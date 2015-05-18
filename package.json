@@ -1,0 +1,29 @@
+{
+  "name": "smirky",
+  "version": "0.0.0",
+  "description": "A smirky slack bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/erdogany/smirky.git"
+  },
+  "keywords": [
+    "smirky",
+    "slack",
+    "bot"
+  ],
+  "author": "Yusuf Erdogan",  
+  "bugs": {
+    "url": "https://github.com/erdogany/smirky/issues"
+  },
+  "homepage": "https://github.com/erdogany/smirky",
+  "dependencies": {
+    "express": "~4.9.x"
+  },
+  "engines": {
+    "node": "0.12.2"
+  }
+}
