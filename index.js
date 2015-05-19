@@ -4,7 +4,7 @@ var app = express();
 app.set('port', (process.env.PORT || 5000));
 
 
-vat request = function(request, response) {
+var request = function(request, response) {
 	console.log(request.headers);
   response.send('{ "text": "heyo" }');
 };
