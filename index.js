@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 var request = function(req, res) {	
+	console.log(req.body);
   res.send('{ "text": ' + JSON.stringify(req.body) + ' }');  
 };
 
