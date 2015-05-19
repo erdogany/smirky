@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var request = function(req, res) {	
 	console.log(req.body.text);
-  res.send('{ "text": ' + req.body.text + ' }');  
+  res.send('{ "text": "' + req.body.text + '" }');  
 };
 
 
