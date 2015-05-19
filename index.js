@@ -1,12 +1,16 @@
-var express = require('express');
-var app = express();
+var app = require('express')();
+var bodyParser = require('body-parser');
 
 app.set('port', (process.env.PORT || 5000));
+
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 
 var request = function(request, response) {
 	console.log(request.headers);
-  response.send('{ "text": "heyo" }');
+  //response.send('{ "text":  }');
+  res.json(req.body);
 };
 
 
