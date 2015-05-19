@@ -22,7 +22,7 @@
   "homepage": "https://github.com/erdogany/smirky",
   "dependencies": {
     "express": "~4.9.x",
-    "bodyParser": "~1.12.x"
+    "body-parser": "~1.12.x"
   },
   "engines": {
     "node": "0.12.2"
