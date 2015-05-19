@@ -5,7 +5,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(request, response) {
 	console.log(request.headers);
-  response.send('heyo');
+  response.send('{ "text": "heyo" }');
 });
 
 app.listen(app.get('port'), function() {
