@@ -7,8 +7,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 
-var request = function(request, response) {
-	console.log(request.headers);
+var request = function(req, res) {	
   //response.send('{ "text":  }');
   res.json(req.body);
 };
