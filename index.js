@@ -1,6 +1,6 @@
 var app = require('express')();
 var bodyParser = require('body-parser');
-var GoogleSearch = require('./google-search.js');
+var GoogleSearch = require('google-search');
 
 
 var googleSearch = new GoogleSearch({
