@@ -17,13 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var request = function(req, res) {	
 	console.log(req.body.text);	
 	googleSearch.build({
-	  q: req.body.text,
-	  start: 5,
-	  fileType: "pdf",
-	  gl: "uk", //geolocation, 
-	  lr: "lang_en",
-	  num: 10, // Number of search results to return between 1 and 10, inclusive 
-	  siteSearch: "http://kitaplar.ankara.edu.tr/" // Restricts results to URLs from a specified site 
+	  q: req.body.text
 	}, function(error, response) {
 	  if(error) {
 	  	console.log("error");
