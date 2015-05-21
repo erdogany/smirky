@@ -26,8 +26,10 @@ var request = function(req, res) {
 	  siteSearch: "http://kitaplar.ankara.edu.tr/" // Restricts results to URLs from a specified site 
 	}, function(error, response) {
 	  if(error) {
+	  	console.log("error");
 	  	res.send('{ "text": "error" }');
 	  } else {
+	  	console.log("success");
 	  	console.log(response);
 	  	res.send('{ "text": "success" }');
 	  }	  
