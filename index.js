@@ -1,6 +1,6 @@
 var app = require('express')();
 var bodyParser = require('body-parser');
-var GoogleSearch = require('google-search');
+var GoogleSearch = require('./google-search.js');
 
 
 var googleSearch = new GoogleSearch({
@@ -17,15 +17,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 var request = function(req, res) {	
 	console.log(req.body.text);	
 	googleSearch.build({
-	  q: req.body.text
+	  q: req.body.text,
+	  start: 1,
+	  fileType: "jpg",
+	  searchType: "image",
+	  num: 10
 	}, function(error, response) {
 	  if(error) {
 	  	console.log("error");
 	  	res.send('{ "text": "error" }');
 	  } else {
 	  	console.log("success");
-	  	console.log(response);
-	  	res.send('{ "text": "success" }');
+	  	console.log(response.items[0].link);
+	  	res.send('{ "text": "'+ response.items[0].link +'" }');
 	  }	  
 	});
   
