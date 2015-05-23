@@ -25,11 +25,15 @@ var request = function(req, res) {
 	}, function(error, response) {
 	  if(error) {
 	  	console.log("error");
-	  	res.send('{ "text": "error" }');
+	  	res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
 	  } else {
 	  	console.log("success");
-	  	console.log(response.items[0].link);
-	  	res.send('{ "text": "'+ response.items[0].link +'" }');
+	  	if (response.items.length > 9) {
+	  	  var random = Math.floor((Math.random() * 10));	  		
+	  		res.send('{ "text": "'+ response.items[random].link +'" }');
+	  	} else {
+	  		res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
+	  	}
 	  }	  
 	});
   
