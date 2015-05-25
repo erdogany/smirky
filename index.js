@@ -29,8 +29,8 @@ var request = function(req, res) {
 		  	res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
 		  } else {
 		  	console.log("success");
-		  	if (response.items != null && response.items.length > 9) {
-		  	  var random = Math.floor((Math.random() * 10));	  		
+		  	if (response.items != null && response.items.length > 0) {
+		  	  var random = Math.floor((Math.random() * response.items.length));	  		
 		  		res.send('{ "text": "'+ response.items[random].link +'" }');
 		  	} else {
 		  		res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
