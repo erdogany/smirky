@@ -23,18 +23,23 @@ var request = function(req, res) {
 	  searchType: "image",
 	  num: 10
 	}, function(error, response) {
-	  if(error) {
-	  	console.log("error");
-	  	res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
-	  } else {
-	  	console.log("success");
-	  	if (response.items != null && response.items.length > 9) {
-	  	  var random = Math.floor((Math.random() * 10));	  		
-	  		res.send('{ "text": "'+ response.items[random].link +'" }');
-	  	} else {
-	  		res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
-	  	}
-	  }	  
+		try {
+		  if(error) {
+		  	console.error(error);
+		  	res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
+		  } else {
+		  	console.log("success");
+		  	if (response.items != null && response.items.length > 9) {
+		  	  var random = Math.floor((Math.random() * 10));	  		
+		  		res.send('{ "text": "'+ response.items[random].link +'" }');
+		  	} else {
+		  		res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
+		  	}
+		  }	  
+		} catch(err) {
+			console.error(err);
+			res.send('{ "text": "http://rs2img.memecdn.com/Fail-Cat_o_111100.gif" }');
+		}
 	});
   
 };
