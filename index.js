@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 var request = function(req, res) {	
 	console.log(req.body.user_name);
-	if(req.body.user_name == 'Smirky') {
+	if(req.body.user_name == 'slackbot') {
 		res.sendStatus(200);
 		return;
 	}
