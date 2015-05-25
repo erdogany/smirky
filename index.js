@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 var request = function(req, res) {	
-	if(req.body.user_name == 'smirky') {
+	if(req.body.user_name == 'Smirky') {
 		res.sendStatus(200);
 		return;
 	}
@@ -59,8 +59,7 @@ var request = function(req, res) {
 
 var triggerWords = ['burrito', 'java', 'javascript', 'error'];
 function triggerWord(text) {
-	 for (var i = 0; i < triggerWords.length; i++) {
-	 	  console.log(triggerWords[i]);
+	 for (var i = 0; i < triggerWords.length; i++) {	 	  
 	 		if(S(text).contains(triggerWords[i])) {
 	 			return 'meme ' + triggerWords[i];
 	 		}
