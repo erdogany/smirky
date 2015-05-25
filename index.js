@@ -12,20 +12,17 @@ var googleSearch = new GoogleSearch({
 app.set('port', (process.env.PORT || 5000));
 
 // for parsing application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true })); 
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 var request = function(req, res) {	
 	console.log("Full text:" + req.body.text);	
-	console.log("Trigger word:" + req.body.trigger_word);	
-	var searchText = 'meme cat';
-	if (req.body.trigger_word == null) {
-		searchText = S(req.body.text).replaceAll('@Smirky', '').replaceAll('@smirky', '').trim().s;
-	} else {
-		searchText = req.body.trigger_word;
+	var searchText = triggerWord(req.body.text);
+	if (searchText == null) {
+		res.sendStatus(200);
+		return;
 	}
-	searchText = 'meme ' + searchText;
-	console.log(searchText);	
+	console.log(searchText);
 	googleSearch.build({
 	  q: searchText,
 	  start: 1,
@@ -56,13 +53,24 @@ var request = function(req, res) {
 };
 
 
-
+var triggerWords = ['burrito', 'java', 'javascript', 'error'];
+function triggerWord(text) {
+	 for (var i = 0; i < triggerWords.length; i++) {
+	 	  console.log(triggerWords[i]);
+	 		if(S(text).contains(triggerWords[i])) {
+	 			return 'meme ' + triggerWords[i];
+	 		}
+	 }
+	 return null;
+}
 
 
 
 app.get('/', request);
 app.post('/', request);
 
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running on port:" + app.get('port'))
 });
+
