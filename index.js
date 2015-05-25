@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 var request = function(req, res) {	
+	if(req.body.user_name == 'smirky') {
+		res.sendStatus(200);
+		return;
+	}
 	console.log("Full text:" + req.body.text);	
 	var searchText = triggerWord(req.body.text);
 	if (searchText == null) {
