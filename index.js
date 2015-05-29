@@ -59,7 +59,7 @@ var request = function(req, res) {
 
 
 var triggerWords = ['burrito', 'java', 'javascript', 'error', 'late', 
-	'slack', 'monday', 'friday', 'firefox', 'chrome', 'apple'];
+	'slack', 'monday', 'friday', 'firefox', 'chrome', 'apple', 'bike', 'Burrito'];
 function triggerWord(text) {
 	 for (var i = 0; i < triggerWords.length; i++) {	 	  
 	 		if(S(text).contains(triggerWords[i])) {
